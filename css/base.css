@@ -1,0 +1,355 @@
+input:focus, textarea:focus{
+	border:1px solid #666 !important;
+}
+
+body, html {
+	width: 100%;
+	height: 99.6%;
+	min-width:1200px;
+	padding: 0px;
+	margin: 0px;
+	background-color: #F4F2E9;
+	font-size: 1em;
+	font-family: Arial;
+	overflow-y: hidden;
+	color: #666;
+}
+
+header{
+	width: 100%;
+	min-width:1200px;
+	background: url("../img/logo.png") no-repeat 60px 5px;
+	background-color: #50A1D8;
+	position:relative;
+	height: 60px;
+}
+
+input:disabled{
+	background-color: #F0F0F0 !important;
+	color: #000000 !important;
+}
+textarea:disabled{
+	background-color: #F0F0F0 !important;
+	color: #000000 !important;
+}
+.logo{
+	background: url("../img/logo.png") no-repeat ;
+	width: 91px;
+	height: 48px;
+}
+
+#unidadeChanger{
+	float: right;
+	margin:10px 20px 0 0;
+}
+#unidadeChanger select{
+	background-color: #F4F2E9;
+	border: none;
+	padding:10px ;
+	font-size: 14px !important;
+}
+
+#portadorChanger{
+	float: right;
+	margin:5px 10px 5px 0;
+}
+#portadorChanger select{
+	background-color: #fff;
+	border: none;
+/*	padding:10px ;*/
+	font-size: 14px !important;
+}
+
+
+.overflow{
+	position:fixed;
+		top:0;
+		right:0;
+		bottom:0;
+		left:0;
+		height:100%;
+		width:100%;
+		margin:0;
+		padding:0;
+		background:#fff;
+		opacity:.60;
+		filter: alpha(opacity=60);
+		-moz-opacity: 0.60;
+		z-index:101;
+}
+
+.loading{
+	position:fixed;
+		top:50%;
+		left:50%;
+		margin:0;
+		padding:0;
+		margin-left:-90px;
+		z-index:102;
+		padding: 10px;
+		color: #000;
+		padding-left:80px;
+		min-height:80px;
+		background: url('../img/icons/loading.gif') no-repeat; 
+		font-size: 18px;
+		font-weight: bold; 
+		text-align: center;
+}
+
+#unidadeChanger select option{
+margin-top:5px;
+}
+
+menu{
+	padding: 3px 0px 0px 10px;
+	margin: 0px;
+}
+li{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+td{
+	word-wrap:break-word;
+}
+a:link{
+	text-decoration: none;
+	color: #333;
+}
+a:visited{
+	text-decoration: none;
+	color: #333;
+}
+a:hover{
+	text-decoration: none;
+	color: #666;
+}
+label{
+	padding: 0px;
+	margin: 0px;
+	
+}
+label{
+	font-size: 0.85em;
+}
+label span{
+	color: #000;
+}
+label.coluns1{
+	display: inline-block;
+	width: 99%;
+	color: #555;
+	
+}
+label.coluns2{
+	display: inline-block;
+	width: 49.5%;
+	color: #555;
+}
+label.coluns3{
+	display: inline-block;
+	width: 33%;
+	color: #555;
+}
+label.coluns4{
+	display: inline-block;
+	width: 24.50%;
+	color: #555;
+}
+label.coluns5{
+	display: inline-block;
+	width: 19.3%;
+	color: #555;
+}
+input{
+	font-size: 1em !important; 
+	width: 90%;
+	text-transform:uppercase;
+	border:1px solid #ccc !important;
+}
+textarea{
+	width: 100%;
+	height: 60px;
+	text-transform:uppercase;
+	border:1px solid #ccc;
+		font-size: 1em !important;
+}
+select{
+	font-size: 1.2em !important;
+}
+input.salvar{
+	margin:2px;
+	width: 110px;
+	height: 30px;
+	border: none;
+	font-size: 16px !important;
+	color: #555555;
+	background-color: #ccc;
+}
+input.salvar:hover{
+	background-color: #333;
+	color:#999;
+	border: 1px solid #CCC;
+}
+
+.radio{
+	width: auto;
+}
+.checkbox{
+	width: auto;
+}
+
+#tool{
+	width: 20%;
+	float: left;
+	height: 100%;
+	border-right:2px solid #A2D0EF;
+	min-height:200px;
+	background-color: #FFF;
+	overflow-y: auto;
+}
+#control{
+	float: left;
+	width: 79%;
+	height: 90%;
+	overflow-y: auto;
+}
+
+#control #formulario{
+	width: 80%;
+	min-width:900px;
+	margin: auto;
+	margin-top: 3px;
+	margin-bottom: 10px;
+}
+#control #listagem{
+	width: 80%;
+	min-width:900px;
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+#control #listagem{
+	width: 80%;
+	min-width:900px;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#control #listagem #contents{
+	margin-top:20px;
+	background: #fff;
+}
+#control #listagem h1{ 
+		margin: 0px;
+	padding: 0px;
+	font-size: 1.1em;
+}
+
+#control #form h1{
+	margin: 0px;
+	padding: 0px;
+	font-size: 1.1em;	
+}
+
+.acesskey{
+	text-decoration: underline;
+/*	font-style:italic;*/
+/*	font-weight: bold;*/
+}
+.inv{
+	text-align: right;
+}
+.center{
+	text-align: center;
+}
+.add{
+	background-color: #ddd;
+	margin:0 2px 3px 2px;
+	text-align: right;
+	padding:2px;
+}
+.listagem3{
+	position:relative;
+	height: 100px;
+	overflow-y: auto;	
+}
+.listagem3 tr:hover{
+	background-color: #ccc;
+}
+
+table.cabecalho{
+	background: #ccc;
+}
+.tituloForms{
+	margin-top: 10px !important;
+	padding: 4px !important;
+/*	background-color: #FFFACD;*/
+}
+.titleMenu{
+	font-size: 0.9em;
+}
+menu li{
+	padding-left: 10px;
+	font-size: 0.8em;
+}
+.resultBox{
+	height: 350px;
+	overflow: auto;
+}
+.search:hover{
+	background-color: #ccc;
+	cursor: pointer;
+}
+.over:hover{
+	background: #ccc;
+}
+
+.barInfo{
+	background: #ccc;
+	padding:2px;
+	width: 100%;
+	margin:0 5px 0 0;
+}
+
+
+
+.deleteForms{
+	border:none !important;
+	background: url(../../../img/flexigrid/page_white_delete.png) no-repeat left center;
+}
+.deleteForms:hover{
+	cursor: pointer;
+}
+
+#loading{
+        position:absolute;
+        width: 100%;
+        height: 100%;
+        background: url(../img/icons/loading.gif) no-repeat center;
+}
+
+
+.buttonFinanceiro{
+	float:left;
+	width:auto;
+	margin: 0 3px;
+	text-align: center;
+	font-size: 10px !important;
+	background: #fff;
+}
+.extrato{
+	background: url(../../img/barExtrato.jpg) repeat-x bottom  ;
+	clear: both;
+}
+.extrato span{
+	background: #fff !important;
+	padding:0 5px
+}
+.extrato span.r{
+	float: right;
+}
+.navScroll{
+	position: fixed;
+	top: 57px;
+}

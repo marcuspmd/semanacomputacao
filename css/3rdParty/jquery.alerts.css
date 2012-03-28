@@ -1,0 +1,75 @@
+#popup_container {
+font-family: Arial, sans-serif;
+	font-size: 12px;
+	min-width: 300px; 
+	max-width: 600px; 
+	background: #FFF;
+	border: solid 5px #999;
+	color: #000;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background: #C1CDCD;
+	 border-color:#838B8B !important;
+	color: #666 !important;
+	
+}
+
+#popup_title {
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 1.75em;
+	color: #666;
+	background: #838B8B url(../../img/confirm/title.gif) top repeat-x;
+	border: solid 1px #FFF;
+	border-bottom: solid 1px #999;
+	cursor: default;
+	padding: 0em;
+	margin: 0em;
+}
+
+#popup_content {
+/*	background: 16px 16px no-repeat url(../../img/confirm/info.gif);*/
+/*	padding: 1em 1.75em;*/
+/*	margin: 0em;*/
+}
+
+#popup_content input{
+	width: auto !important;
+		color:#fff;
+	background-color: #6d829d;
+	padding:4px;
+	border: none;
+}
+
+#popup_message textarea{
+	width: 90% !important;
+}
+
+#popup_content.alert {
+/*	background-image: url(../../img/confirm/info.gif);*/
+}
+
+#popup_content.confirm {
+/*	background-image: url(../../img/confirm/important.gif);*/
+}
+
+#popup_content.prompt {
+/*	background-image: url(../../img/confirm/help.gif);*/
+}
+
+#popup_message {
+	text-align: center;
+	padding:10px 0;	
+	font-size: 14px;
+}
+
+#popup_panel {
+	text-align: center;
+	margin: 1em 0em 1em 0em;
+}
+
+#popup_prompt {
+	margin: .5em 0em;
+}
