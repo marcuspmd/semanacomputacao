@@ -12,7 +12,7 @@ if (($_SERVER['SERVER_NAME'] == 'localhost') || ($_SERVER['SERVER_NAME'] == '127
 
 } else {
 	@define(_HOST_, 'localhost');
-	@define(_LOGIN_, 'fiber_erp');
+	@define(_LOGIN_, 'fiber_erpa');
 	@define(_SCHEMA_, 'fiber_erp');
 	@define(_CHARSET_, 'utf8');
 }
