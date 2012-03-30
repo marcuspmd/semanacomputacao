@@ -9,6 +9,7 @@ if (($_SERVER['SERVER_NAME'] == 'localhost') || ($_SERVER['SERVER_NAME'] == '127
 	@define(_SCHEMA_, 'fabrica');
 	@define(_CHARSET_, 'utf8');
 	@define(_DIRETORIO_, '');
+	@define(_LOG_, array('BD','log'));
 
 } else {
 	@define(_HOST_, 'localhost');
