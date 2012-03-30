@@ -14,7 +14,7 @@ class DBASE extends mysqli {
 	private $_table;
 	private $_query;
 	private $_campos = '*';
-	private $_limit;
+	private $_limit = null;
 	private $_limitQtd;
 	private $_sql;
 	private $_data;
@@ -39,12 +39,23 @@ class DBASE extends mysqli {
 	}
 
 	public function execute($action) {
-		switch (strtolower($action)){
-			case 'c':
-			case 'insert':
-				$this->create();
+		switch (strtolower($action)) {
+			case 'c' :
+			case 'insert' :
+				return $this -> create();
 				break;
-				
+			case 'd' :
+			case 'delete' :
+				return $this -> delete();
+				break;
+			case 'r' :
+			case 'select' :
+				return $this -> read();
+				break;
+			case 'u' :
+			case 'update' :
+				return $this -> update();
+				break;
 		}
 	}
 
@@ -105,7 +116,7 @@ class DBASE extends mysqli {
 		if (!empty($this -> _order_field))
 			$this -> _order_field = ' ORDER ' . $this -> _order_field . ' ' . $this -> _order_sort;
 
-		if (!empty($this -> _limit))
+		if (!is_null($this -> _limit))
 			$this -> _limit = ' LIMIT ' . $this -> _limit . ', ' . $this -> _limitQtd;
 
 		$sql = 'SELECT ' . $this -> _campos . ' FROM `' . $this -> _table . '`' . $this -> _query . $this -> _order_field . $this -> _limit;
@@ -129,8 +140,6 @@ class DBASE extends mysqli {
 			return false;
 		}
 	}
-
-
 
 	/**
 	 * funcao para fazer update no sistema
@@ -198,7 +207,7 @@ class DBASE extends mysqli {
 		if (!empty($this -> _order_field))
 			$this -> _order_field = ' ORDER ' . $this -> _order_field . ' ' . $this -> _order_sort;
 
-		if (!empty($this -> _limit))
+		if (!is_null($this -> _limit))
 			$this -> _limit = ' LIMIT ' . $this -> _limit . ', ' . $this -> _limitQtd;
 
 		$sql = 'DELETE FROM `' . $this -> _table . '`' . $this -> _query . $this -> _order_field . $this -> _limit;
@@ -394,10 +403,12 @@ class DBASE extends mysqli {
 	 */
 	private function configArquivo($dir, $arquivo) {
 		$tamanho = 1048576 * $this -> _log_max;
-		$nomeArquivo = $dir . '/' . $arquivo . ' ' . date("Y-m-d") . 'txt';
+		$nomeArquivo = $dir . '/' . $arquivo . ' ' . date("Y-m-d") . '.txt';
 		if (file_exists($nomeArquivo)) {
-			$aux = filesize($nomeArquivo) / $tamanho;
-			return $arquivo . $aux . ' ' . date("Y-m-d") . 'txt';
+			$aux = round(filesize($nomeArquivo) / $tamanho);
+			if ($aux > 1)
+				$nomeArquivo = $dir . '/' . $arquivo . $aux . ' ' . date("Y-m-d") . '.txt';
+			return $nomeArquivo;
 		} else {
 			return $nomeArquivo;
 		}
@@ -462,6 +473,10 @@ class DBASE extends mysqli {
 	public function debug($debug) {
 		$this -> _debug = $debug;
 		return $this;
+	}
+
+	public function getLastId() {
+		return $this -> _last_id;
 	}
 
 }
