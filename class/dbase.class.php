@@ -235,7 +235,7 @@ class DBASE extends mysqli {
 		$values = '';
 		$i = 0;
 		foreach ($this->_data as $key => $value) {
-			$fields .= "`" . $key . "`";
+			$fields .= " `" . $key . "`";
 			$values .= $this -> treatValue($value);
 
 			if ($i < count($this -> _data) - 1) {
@@ -256,10 +256,10 @@ class DBASE extends mysqli {
 		$i = 0;
 		foreach ($this->_data as $key => $value) {
 			if (!is_null($value)) {
-				$fields .= "`" . $key . "` = ";
+				$fields .= " `" . $key . "` = ";
 				$fields .= $this -> treatValue($value);
 
-				if ($i < count($this -> Data) - 1)
+				if ($i < count($this -> _data) - 1)
 					$fields .= ',';
 
 			}
@@ -444,6 +444,14 @@ class DBASE extends mysqli {
 	}
 
 	public function limit($inicio = null, $fim = null) {
+		if (!is_numeric($inicio)){
+			$this->_error = 'limit nao e numeral';
+			return false;
+		} 
+		if (!is_numeric($fim)){
+			$this->_error = 'limit nao e numeral';
+			return false;
+		} 
 		$this -> _limit = $inicio;
 		$this -> _limitQtd = $fim;
 		return $this;
@@ -461,6 +469,9 @@ class DBASE extends mysqli {
 
 	public function order($field, $sort = 'ASC') {
 		$this -> _order_field = $field;
+		if (($sort != 'ASC') and ($sort != 'DESC'))
+			$sort = 'ASC';
+		
 		$this -> _order_sort = $sort;
 		return $this;
 	}
@@ -478,6 +489,11 @@ class DBASE extends mysqli {
 	public function getLastId() {
 		return $this -> _last_id;
 	}
+	public function getError() {
+		return $this -> _error;
+	}
 
 }
+
 ?>
+

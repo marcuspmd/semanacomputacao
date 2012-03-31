@@ -5,11 +5,12 @@ if (($_SERVER['SERVER_NAME'] == 'localhost') || ($_SERVER['SERVER_NAME'] == '127
 	// if (($_SERVER['SERVER_NAME'] == 'localhost') || ($_SERVER['SERVER_NAME'] == '127.0.0.1')){
 	@define(_HOST_, 'localhost');
 	@define(_LOGIN_, 'root');
-	@define(_PASSWORD_, 'root');
+	@define(_PASSWORD_, '');
 	@define(_SCHEMA_, 'fabrica');
 	@define(_CHARSET_, 'utf8');
 	@define(_DIRETORIO_, '');
-	@define(_LOG_, array('BD','log'));
+	// @define(_LOG_, array('BD','log'));
+	@define(_LOG_, serialize(array('FILE',dirname(__FILE__).'/log/','marcus')));
 
 } else {
 	@define(_HOST_, 'localhost');
@@ -51,7 +52,7 @@ if (($_SERVER['SERVER_NAME'] == 'localhost') || ($_SERVER['SERVER_NAME'] == '127
 
 //tabelas
 //empresa - cliente
-@define(_TABLE_EMPRESA_, 'empresa');
+@define(_TABLE_USUARIO_, 'usuario');
 @define(_TABLE_REFERENCIA_, 'referencia');
 @define(_TABLE_ENDERECO_, 'endereco');
 @define(_TABLE_DIVISAO_, 'divisao');
