@@ -1,0 +1,14 @@
+Options +FollowSymLinks 
+
+RewriteEngine on 
+
+
+RewriteBase /
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+
+
+
+
+RewriteRule ^(.+)/$ /index.php?rewrite=$1 [L]

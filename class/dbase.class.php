@@ -29,7 +29,7 @@ class DBASE extends mysqli {
 
 	public function __construct($log = false) {
 		parent::__construct(_HOST_, _LOGIN_, _PASSWORD_, _SCHEMA_);
-
+		parent::set_charset(_CHARSET_);
 		if (mysqli_connect_error()) {
 			die('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
 		}
@@ -444,14 +444,14 @@ class DBASE extends mysqli {
 	}
 
 	public function limit($inicio = null, $fim = null) {
-		if (!is_numeric($inicio)){
-			$this->_error = 'limit nao e numeral';
+		if (!is_numeric($inicio)) {
+			$this -> _error = 'limit nao e numeral';
 			return false;
-		} 
-		if (!is_numeric($fim)){
-			$this->_error = 'limit nao e numeral';
+		}
+		if (!is_numeric($fim)) {
+			$this -> _error = 'limit nao e numeral';
 			return false;
-		} 
+		}
 		$this -> _limit = $inicio;
 		$this -> _limitQtd = $fim;
 		return $this;
@@ -471,7 +471,7 @@ class DBASE extends mysqli {
 		$this -> _order_field = $field;
 		if (($sort != 'ASC') and ($sort != 'DESC'))
 			$sort = 'ASC';
-		
+
 		$this -> _order_sort = $sort;
 		return $this;
 	}
@@ -489,11 +489,11 @@ class DBASE extends mysqli {
 	public function getLastId() {
 		return $this -> _last_id;
 	}
+
 	public function getError() {
 		return $this -> _error;
 	}
 
 }
-
 ?>
 

@@ -1,0 +1,99 @@
+﻿.modal-overlay
+	{
+		position:fixed;
+		top:0;
+		right:0;
+		bottom:0;
+		left:0;
+		height:100%;
+		width:100%;
+		margin:0;
+		padding:0;
+		background:#000;
+		opacity:.45;
+		filter: alpha(opacity=45);
+		-moz-opacity: 0.45;
+		z-index:101;
+	}
+	* html .modal-overlay
+	{   
+		position: absolute;
+		height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');
+	}
+	.modal-window
+	{
+		position:fixed;
+		top:50%;
+		left:50%;
+		margin:0;
+		padding:0;
+		z-index:102;
+		background: #fff;
+		
+		padding: 10px;
+	}
+	* html .modal-window
+	{
+		position:absolute;
+	}
+	.close-window
+	{
+		position:absolute;
+		font-size:12px;
+		text-align:left;
+		right:2px;
+		top:2px;
+/*		background:transparent url('../../img/flashmessage/err.png') no-repeat scroll right top;*/
+		overflow:hidden;
+		cursor:pointer;
+		opacity:.5;
+		filter: alpha(opacity=50);
+		-moz-opacity: 0.5;
+		
+	}
+	.close-window:hover
+	{
+		opacity:.99;
+		filter: alpha(opacity=99);
+		-moz-opacity: 0.99;
+	}
+	#contentsModal{
+		z-index: 99999;
+		min-width: 1px;
+		min-height: 1px;
+		
+	}
+.overflow{
+	position:fixed;
+		top:0;
+		right:0;
+		bottom:0;
+		left:0;
+		height:100%;
+		width:100%;
+		margin:0;
+		padding:0;
+		background:#fff;
+		opacity:.60;
+		filter: alpha(opacity=60);
+		-moz-opacity: 0.60;
+		z-index:101;
+}
+
+.loading{
+	position:fixed;
+		top:50%;
+		left:50%;
+		margin:0;
+		padding:0;
+		margin-left:-90px;
+		z-index:102;
+		padding: 10px;
+		color: #000;
+		padding-left:80px;
+		min-height:80px;
+		background: url('../img/loading.gif') no-repeat; 
+		font-size: 18px;
+		font-weight: bold; 
+		text-align: center;
+}

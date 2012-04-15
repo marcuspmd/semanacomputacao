@@ -5,8 +5,11 @@ require_once (dirname ( __FILE__ ) . '/../configs.php');
 class curso {
 	protected $db; //Banco de dados
 	private $changed; //para update
-	private $idcurso = null;
-	private $descricao = null;
+	protected $idcurso = null;
+	protected $descricao = null;
+	protected $abreviacao = null;
+	protected $criado = null;
+	protected $modificado = null;
 	
 		function __construct(){
 			if (is_null($this -> db)) {
@@ -60,6 +63,9 @@ class curso {
 	$data = array();
 	$data['idcurso']      = $this->idcurso;
 	$data['descricao']      = $this->descricao;
+	$data['abreviacao']      = $this->abreviacao;
+	$data['criado']      = $this->criado;
+	$data['modificado']      = $this->modificado;
 	
 	return $data;
 	}
@@ -68,6 +74,9 @@ class curso {
 	{
 	$this->idcurso	= $data['idcurso'];
 	$this->descricao	= $data['descricao'];
+	$this->abreviacao	= $data['abreviacao'];
+	$this->criado	= $data['criado'];
+	$this->modificado	= $data['modificado'];
 	}
 
 	
@@ -94,6 +103,45 @@ class curso {
 	public function getDescricao()
 	{
 		return $this->descricao;
+	}
+	
+	
+	public function setAbreviacao($abreviacao)
+	{
+ 		$this->changed = TRUE;
+		$this->abreviacao = $abreviacao;
+		return $this;
+	}
+
+	public function getAbreviacao()
+	{
+		return $this->abreviacao;
+	}
+	
+	
+	public function setCriado($criado)
+	{
+ 		$this->changed = TRUE;
+		$this->criado = $criado;
+		return $this;
+	}
+
+	public function getCriado()
+	{
+		return $this->criado;
+	}
+	
+	
+	public function setModificado($modificado)
+	{
+ 		$this->changed = TRUE;
+		$this->modificado = $modificado;
+		return $this;
+	}
+
+	public function getModificado()
+	{
+		return $this->modificado;
 	}
 	
 }

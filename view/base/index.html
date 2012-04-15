@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8">
+		<title>Igarapé folia</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/css/upload/styles.css">
+		<style type="text/css">
+			body {
+				padding-top: 60px;
+				padding-bottom: 40px;
+			}
+			.sidebar-nav {
+				padding: 9px 0;
+			}
+		</style>
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!-- Le fav and touch icons -->
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a class="brand" href="#">Igarapé Folia</a>
+					<div class="nav-collapse">
+						<ul class="nav">
+							<li class="active">
+								<a id="menu_home" href="#">Home</a>
+							</li>
+							<li>
+								<a href="#about">Eventos</a>
+							</li>
+							<li>
+								<a href="#contact">Galeria de fotos</a>
+							</li>
+							<li>
+								<a href="#contact">Galeria de videos</a>
+							</li>
+							<li>
+								<a href="#contact">Noticias</a>
+							</li>
+							<li>
+								<a href="#contact">Parceiros</a>
+							</li>
+							<li>
+								<a href="#contact">Configurações</a>
+							</li>
+							<li>
+								<a href="#contact">Sair</a>
+							</li>
+						</ul>
+						<p class="navbar-text pull-right">
+							<a href="#">MarcusP</a>
+						</p>
+					</div><!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span3">
+					<div class="well sidebar-nav">
+						<ul class="nav nav-list">
+							<li class="nav-header">
+								Estatisticas
+							</li>
+							<li >
+								<a href="#">Galeria: TESTE</a>
+							</li>
+							<li >
+								<a href="#">Fotos: 10</a>
+							</li>
+							<li >
+								<a href="#">Visualizações: 10</a>
+							</li>
+							<li >
+								<a href="#">Downloads: 10</a>
+							</li>
+							<li >
+								<a href="#">Criada em: 30/10/2010</a>
+							</li>
+						</ul>
+					</div><!--/.well -->
+				</div><!--/span-->
+				<div class="span9">
+					<div class="well">
+						<h1>Galeria de Fotos</h1>
+					</div>
+					<div class="well">
+						<ul id="tabs" class="nav nav-tabs">
+							<li class="active">
+								<a href="#info" class="active" data-toggle="tab">Informações</a>
+							</li>
+							<li>
+								<a href="#list" data-toggle="tab">Listagem de fotos</a>
+							</li>
+							<li>
+								<a href="#send" data-toggle="tab">Envio de fotos</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="info">
+								<div class="row-fluid">
+									<div class="span6">
+										Titulo:
+										<br />
+										<input class="input" type="text" name="galeriaFotos__titulo" id="galeriaFotos__titulo" placeholder="Digite o titulo da galeria" required autofocus />
+									</div><!--/span-->
+									
+								</div>
+								<div class="row-fluid">
+									<div class="span3">
+										Data:
+										<br />
+										<input class="input" type="text" name="galeriaFotos__data" id="galeriaFotos__data" placeholder="Digite a data do evento" />
+									</div><!--/span-->
+									<div class="span3">
+										Cidade:
+										<br />
+										<input class="input" type="text" name="galeriaFotos__cidade" id="galeriaFotos__cidade" placeholder="Digite a cidade do evento" />
+									</div><!--/span-->
+									<div class="span3">
+										Local:
+										<br />
+										<input class="input" type="text" name="galeriaFotos__local" id="galeriaFotos__local" placeholder="Digite o local do evento"/>
+									</div><!--/span-->
+								</div>
+								<div class="row-fluid">
+									<div class="span12">
+										Descrição: 										<textarea class="textarea" name="galeriaFotos__descricao" id="galeriaFotos__descricao" placeholder="Digite a descricao da galeria" ></textarea>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="list">
+								...
+							</div>
+							<div class="tab-pane" id="send">
+								<div id="dropbox">
+									<span class="message">Arraste e solte o(s) arquivo(s) aqui. </span>
+								</div>
+							</div>
+						</div>
+					</div>
+						<div class="btn-group pull-right">
+<button class="btn">Cancelar</button>
+<button class="btn">Salvar</button>
+					</div>
+				</div><!--/span-->
+				
+				
+			</div><!--/row-->
+			<footer>
+				<p>
+				</p>
+			</footer>
+		</div><!--/.fluid-container-->
+		<script src="/js/jquery-1.7.2.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script charset="UTF-8"src="/js/upload/jquery.filedrop.js"></script>
+		<script charset="UTF-8"src="/js/upload/script.js"></script>
+		<script>
+			$(function() {
+				$('#tabs').tab('show');
+				$('#tabs > li:eq(0)').addClass('active')
+			})
+		</script>
+	</body>
+</html>

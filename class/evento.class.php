@@ -5,21 +5,21 @@ require_once (dirname ( __FILE__ ) . '/../configs.php');
 class evento {
 	protected $db; //Banco de dados
 	private $changed; //para update
-	private $idevento = null;
-	private $edicao_idedicao = null;
-	private $curso_idcurso = null;
-	private $endereco_idendereco = null;
-	private $usuario_palestrante = null;
-	private $titulo = null;
-	private $dataEvento = null;
-	private $tipo = null;
-	private $resumo = null;
-	private $preRequisito = null;
-	private $duracao = null;
-	private $vagasDisponiveis = null;
-	private $criado = null;
-	private $modificado = null;
-	private $ativo = null;
+	protected $idevento = null;
+	protected $edicao_idedicao = null;
+	protected $curso_idcurso = null;
+	protected $endereco_idendereco = null;
+	protected $usuario_palestrante = null;
+	protected $titulo = null;
+	protected $dataEvento = null;
+	protected $tipo = null;
+	protected $resumo = null;
+	protected $preRequisito = null;
+	protected $duracao = null;
+	protected $vagasDisponiveis = null;
+	protected $ativo = null;
+	protected $criado = null;
+	protected $modificado = null;
 	
 		function __construct(){
 			if (is_null($this -> db)) {
@@ -83,9 +83,9 @@ class evento {
 	$data['preRequisito']      = $this->preRequisito;
 	$data['duracao']      = $this->duracao;
 	$data['vagasDisponiveis']      = $this->vagasDisponiveis;
+	$data['ativo']      = $this->ativo;
 	$data['criado']      = $this->criado;
 	$data['modificado']      = $this->modificado;
-	$data['ativo']      = $this->ativo;
 	
 	return $data;
 	}
@@ -104,9 +104,9 @@ class evento {
 	$this->preRequisito	= $data['preRequisito'];
 	$this->duracao	= $data['duracao'];
 	$this->vagasDisponiveis	= $data['vagasDisponiveis'];
+	$this->ativo	= $data['ativo'];
 	$this->criado	= $data['criado'];
 	$this->modificado	= $data['modificado'];
-	$this->ativo	= $data['ativo'];
 	}
 
 	
@@ -266,6 +266,19 @@ class evento {
 	}
 	
 	
+	public function setAtivo($ativo)
+	{
+ 		$this->changed = TRUE;
+		$this->ativo = $ativo;
+		return $this;
+	}
+
+	public function getAtivo()
+	{
+		return $this->ativo;
+	}
+	
+	
 	public function setCriado($criado)
 	{
  		$this->changed = TRUE;
@@ -289,19 +302,6 @@ class evento {
 	public function getModificado()
 	{
 		return $this->modificado;
-	}
-	
-	
-	public function setAtivo($ativo)
-	{
- 		$this->changed = TRUE;
-		$this->ativo = $ativo;
-		return $this;
-	}
-
-	public function getAtivo()
-	{
-		return $this->ativo;
 	}
 	
 }
