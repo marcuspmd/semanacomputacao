@@ -31,8 +31,8 @@ switch ($action) {
 				$selectEdicao = $edicao -> makeSelectEdicao($dados['edicao_idedicao']);
 				$selectCurso = $curso -> makeSelectCurso($dados['curso_idcurso']);
 				$selectUsuario = $usuario -> makeSelectPalestrante($dados['usuario_palestrante']);
-				$endereco->select($dados['endereco_idendereco']);
-				$end = $endereco->getStruct();
+				$endereco -> select($dados['endereco_idendereco']);
+				$end = $endereco -> getStruct();
 				break;
 			default :
 				break;
@@ -40,8 +40,42 @@ switch ($action) {
 		$pagina = 'formulario';
 		break;
 
+	case 'grid' :
+		$pagination = $_REQUEST['page'];
+		$rp = $_REQUEST['rp'];
+		$sortname = $_REQUEST['sortname'];
+		$sortorder = $_REQUEST['sortorder'];
+		$query = $_REQUEST['query'];
+		$auxFields = explode('&', $query);
+		$where = '';
+		foreach ((array)$auxFields as $key) {
+			list($chave, $valor) = explode('=', $key);
+			if (!empty($valor)) {
+				$where .= " and $chave like '%$valor%'";
+			}
+		}
+		if (empty($pagination)) {
+			$pagination = 1;
+		}
+
+		$ret = $controller -> gridEvento(&$totalReg, $sortname, $sortorder, $page, $limit, $where);
+		$data = array();
+		$data['page'] = $pagination;
+
+		$data['rows'] = array();
+
+		foreach ((array) $ret as $key) {
+			// $key['dataEvento'] = unmakeTimestamptoDate($key['dataEvento']);
+			$data['rows'][] = array('id' => $key['idevento'], 'cell' => $key);
+		}
+		$data['total'] = count($ret);
+		$data['nreg'] = count($ret);
+		echo json_encode($data);
+		exit();
+		break;
+
 	default :
-	$pagina = 'listagem';
+		$pagina = 'listagem';
 		break;
 }
 // $dados = $usuario -> getStruct();

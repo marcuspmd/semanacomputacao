@@ -34,6 +34,30 @@ class edicaoModel extends edicao {
 		}
 		return $msg;
 	}
+	
+	public function gridEdicao(&$totalReg, $sortname, $sortorder, $page, $limit, $where = '') {
+		if ($page > 0) {
+			$page--;
+		}
+		$inicio = $page * $limit;
+
+		$sql = 'select
+                distinct
+                      ' . _TABLE_EDICAO_ . '.idedicao,
+                       ' . _TABLE_EDICAO_ . '.descricao
+                from
+                ' . _TABLE_EDICAO_ . '
+                where
+                	idedicao != 0
+                     ' . $where . '
+                Order By ' . $sortname . ' ' . $sortorder;
+
+		$limit = ' LIMIT ' . $inicio . ',' . $limit;
+		$lanc = $this -> db -> executeSelectsSql($sql);
+
+		$totalReg = $this -> db -> executeSelectsSql($sql);
+		return $lanc;
+	}
 
 }
 ?>

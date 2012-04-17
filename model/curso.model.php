@@ -37,6 +37,31 @@ class cursoModel extends curso {
 		}
 		return $msg;
 	}
+	
+	public function gridCurso(&$totalReg, $sortname, $sortorder, $page, $limit, $where = '') {
+		if ($page > 0) {
+			$page--;
+		}
+		$inicio = $page * $limit;
+
+		$sql = 'select
+                distinct
+                      ' . _TABLE_CURSO_ . '.idcurso,
+                        ' . _TABLE_CURSO_ . '.abreviacao,
+                       ' . _TABLE_CURSO_ . '.descricao
+                from
+                ' . _TABLE_CURSO_ . '
+                where
+                	idcurso != 0
+                     ' . $where . '
+                Order By ' . $sortname . ' ' . $sortorder;
+
+		$limit = ' LIMIT ' . $inicio . ',' . $limit;
+		$lanc = $this -> db -> executeSelectsSql($sql);
+
+		$totalReg = $this -> db -> executeSelectsSql($sql);
+		return $lanc;
+	}
 
 }
 ?>

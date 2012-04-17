@@ -38,16 +38,16 @@
 								<a id="menu_home" href="#">Home</a>
 							</li>
 							<li <?PHP if ($page == 'usuario') echo 'class="active"'; ?> >
-								<a href="<?PHP echo _LINK_;?>usuario/formulario/">Usuario</a>
+								<a href="<?PHP echo _LINK_;?>usuario/">Usuario</a>
 							</li>
 							<li <?PHP if ($page == 'evento') echo 'class="active"'; ?> >
 								<a href="<?PHP echo _LINK_;?>evento/">Eventos</a>
 							</li>
 							<li <?PHP if ($page == 'curso') echo 'class="active"'; ?>>
-								<a href="<?PHP echo _LINK_;?>curso/formulario/">Cursos</a>
+								<a href="<?PHP echo _LINK_;?>curso/">Cursos</a>
 							</li>
 							<li <?PHP if ($page == 'edicao') echo 'class="active"'; ?>>
-								<a href="<?PHP echo _LINK_;?>edicao/formulario/">Edições</a>
+								<a href="<?PHP echo _LINK_;?>edicao/">Edições</a>
 							</li>
 							<li <?PHP if ($page == 'noticia') echo 'class="active"'; ?>>
 								<a href="<?PHP echo _LINK_;?>noticia/">Noticias</a>

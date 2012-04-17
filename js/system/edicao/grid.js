@@ -8,15 +8,11 @@ $(function() {
 	}
 
 	$("#grid").flexigrid({
-		url : '/evento/grid/',
+		url : '/edicao/grid/',
 		dataType : 'json',
 		colModel : [
-					{display : 'Codigo', name : 'idevento',	width : 45,	sortable : true, align : 'left', search : true}, 
-					{display : 'Titulo',name : 'titulo',width : 300,sortable : true,align : 'left',search : true}, 
-					{display : 'Data', name : 'dataEvento',width : 80,sortable : true,	align : 'left',	search : true}, 
-					{display : 'Palestrante',name : 'nome', table:'usuario', width : 300, sortable : true,align : 'left',	search : true}, 
-					{display : 'Duracao',name : 'duracao',	width : 70, sortable : true,align : 'left',	search : true}, 
-					{display : 'Vagas',name : 'vagasDisponiveis',	width : 55, sortable : true,align : 'left',	search : false}, 
+					{display : 'Codigo', name : 'idedicao',	width : 45,	sortable : true, align : 'left', search : true}, 
+					{display : 'Descrição',name : 'descricao',width : 830,sortable : true,align : 'left',search : true} 
 					],
 		buttons : [
 			// {name : 'Novo',	bclass : 'novo',onpress : doCommand}, 
@@ -26,7 +22,7 @@ $(function() {
 			{name : 'Editar',displayInicial : 'hidden',	bclass : 'icon-pencil',onpress : doCommand	},
 			// {name : 'Imprimir',displayInicial : 'hidden',	bclass : 'icon-print',onpress : doCommand	},
 			],
-		sortname : "dataEvento",
+		sortname : "descricao",
 		sortorder : "desc",
 		usepager : false,
 		useRp : true,
@@ -55,16 +51,16 @@ function events() {
 	
 			if($('#grid .trSelected').length == 1) {
 				// $('[rel="Editar"]').css('display', 'block');
-				$('[rel="editar"]').css('display', 'block');
+				$('[rel="Editar"]').css('display', 'block');
 			} else {
-				$('[rel="editar"]').css('display', 'none');
+				$('[rel="Editar"]').css('display', 'none');
 				// $('[rel="Editar"]').css('display', 'none');
 			}
 			if($('#grid .trSelected').length >= 1) {
-				$('[rel="Imprimir"]').css('display', 'block');
+				// $('[rel="Imprimir"]').css('display', 'block');
 				// $('[rel="Excluir"]').css('display', 'block');
 			} else {
-				$('[rel="Imprimir"]').css('display', 'none');
+				// $('[rel="Imprimir"]').css('display', 'none');
 				// $('[rel="Excluir"]').css('display', 'none');
 			}
 			
@@ -74,7 +70,7 @@ function events() {
 function doCommand(com, grid) {
 	switch (com) {
 		case 'Novo':
-			loading('Carregando...', '/evento/formulario/');
+			loading('Carregando...', '/edicao/formulario/');
 			break;
 		case 'Editar':
 			var id = '';
@@ -82,7 +78,7 @@ function doCommand(com, grid) {
 				id = $(this).attr('id');
 				id = id.substring(id.lastIndexOf('row') + 3);
 			});
-			loading('Carregando...', '/evento/formulario/' + id + '/');
+			loading('Carregando...', '/edicao/formulario/' + id + '/');
 			break;
 		default:
 			alert($('.trSelected', grid).length);

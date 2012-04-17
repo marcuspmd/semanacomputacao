@@ -46,6 +46,36 @@ class usuarioModel extends usuario {
 		}
 		return $msg;
 	}
+	
+	public function gridUsuario(&$totalReg, $sortname, $sortorder, $page, $limit, $where = '') {
+		if ($page > 0) {
+			$page--;
+		}
+		$inicio = $page * $limit;
+
+		$sql = 'select
+                distinct
+                      ' . _TABLE_USUARIO_ . '.idusuario,
+                      ' . _TABLE_USUARIO_ . '.nome,
+                      ' . _TABLE_CURSO_ . '.abreviacao,
+                      ' . _TABLE_USUARIO_ . '.matricula,
+                      ' . _TABLE_USUARIO_ . '.cpfCnpj,
+                      ' . _TABLE_USUARIO_ . '.email,
+                      ' . _TABLE_USUARIO_ . '.telefone
+                from
+                ' . _TABLE_USUARIO_ . '
+                left join ' . _TABLE_CURSO_ . ' on ' . _TABLE_USUARIO_ . '.curso_idcurso = ' . _TABLE_CURSO_ . '.idcurso
+                where
+                	' . _TABLE_USUARIO_ . '.ativo = true
+                     ' . $where . '
+                Order By ' . $sortname . ' ' . $sortorder;
+
+		$limit = ' LIMIT ' . $inicio . ',' . $limit;
+		$lanc = $this -> db -> executeSelectsSql($sql);
+
+		$totalReg = $this -> db -> executeSelectsSql($sql);
+		return $lanc;
+	}
 
 }
 ?>

@@ -44,12 +44,18 @@
 					<div class="tab-content">
 						<div class="tab-pane active" id="info">
 							<div class="row-fluid">
-								<div class="span6">
+								<div class="span4">
 									Titulo:
 									<br />
 									<input  type="hidden" name="evento__idevento" id="evento__idevento" value="<?PHP echo $dados['idevento'] ?>" />
 									<input class="input" type="text" name="evento__titulo" id="evento__titulo"  value="<?PHP echo $dados['titulo'] ?>"  placeholder="Digite o titulo do evento" required autofocus />
 								</div><!--/span-->
+								<div class="span2">
+									Data:
+									<br />
+									<input class="input" type="text" name="evento__dataEvento" id="evento__dataEvento"  value="<?PHP echo $dados['dataEvento'] ?>"   />
+									</span>
+								</div>
 								<div class="span3">
 									Curso:
 									<br />

@@ -2,12 +2,12 @@
 require_once (dirname(__FILE__) . '/../controller/curso.controller.php');
 
 $controller = new cursoController();
-
 if (empty($action))
-	$action = 'formulario';
+	$action = 'listagem';
 
 switch ($action) {
 	case 'formulario' :
+		$pagina = 'formulario';
 		switch ($url[2]) {
 			case 'salvar' :
 				$controller -> savePost($_POST);
@@ -19,10 +19,45 @@ switch ($action) {
 			default :
 				break;
 		}
-		$pagina = 'formulario';
+		
+	break;
+
+	case 'grid' :
+		$pagination = $_REQUEST['page'];
+		$rp = $_REQUEST['rp'];
+		$sortname = $_REQUEST['sortname'];
+		$sortorder = $_REQUEST['sortorder'];
+		$query = $_REQUEST['query'];
+		$auxFields = explode('&', $query);
+		$where = '';
+		foreach ((array)$auxFields as $key) {
+			list($chave, $valor) = explode('=', $key);
+			if (!empty($valor)) {
+				$where .= " and $chave like '%$valor%'";
+			}
+		}
+		if (empty($pagination)) {
+			$pagination = 1;
+		}
+
+		$ret = $controller -> gridCurso(&$totalReg, $sortname, $sortorder, $page, $limit, $where);
+		$data = array();
+		$data['page'] = $pagination;
+
+		$data['rows'] = array();
+
+		foreach ((array) $ret as $key) {
+			// $key['dataEvento'] = unmakeTimestamptoDate($key['dataEvento']);
+			$data['rows'][] = array('id' => $key['idcurso'], 'cell' => $key);
+		}
+		$data['total'] = count($ret);
+		$data['nreg'] = count($ret);
+		echo json_encode($data);
+		exit();
 		break;
 
 	default :
+		$pagina = 'listagem';
 		break;
 }
 // $dados = $usuario -> getStruct();

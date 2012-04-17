@@ -8,15 +8,16 @@ $(function() {
 	}
 
 	$("#grid").flexigrid({
-		url : '/evento/grid/',
+		url : '/usuario/grid/',
 		dataType : 'json',
 		colModel : [
-					{display : 'Codigo', name : 'idevento',	width : 45,	sortable : true, align : 'left', search : true}, 
-					{display : 'Titulo',name : 'titulo',width : 300,sortable : true,align : 'left',search : true}, 
-					{display : 'Data', name : 'dataEvento',width : 80,sortable : true,	align : 'left',	search : true}, 
-					{display : 'Palestrante',name : 'nome', table:'usuario', width : 300, sortable : true,align : 'left',	search : true}, 
-					{display : 'Duracao',name : 'duracao',	width : 70, sortable : true,align : 'left',	search : true}, 
-					{display : 'Vagas',name : 'vagasDisponiveis',	width : 55, sortable : true,align : 'left',	search : false}, 
+					{display : 'Codigo', name : 'idusuario',	width : 45,	sortable : true, align : 'left', search : true}, 
+					{display : 'Nome',name : 'nome',width : 220,sortable : true,align : 'left',search : true}, 
+					{display : 'Curso', name : 'abreviacao', table: 'curso', width : 80,sortable : true,	align : 'left',	search : true}, 
+					{display : 'Matricula',name : 'matricula',  width : 80, sortable : true,align : 'left',	search : true}, 
+					{display : 'Cpf/Cnpj',name : 'cpfCnpj',	width : 100, sortable : true,align : 'left',	search : true}, 
+					{display : 'Email',name : 'email',	width : 230, sortable : true,align : 'left',	search : true}, 
+					{display : 'Telefone',name : 'telefone',	width : 75, sortable : true,align : 'left',	search : true}, 
 					],
 		buttons : [
 			// {name : 'Novo',	bclass : 'novo',onpress : doCommand}, 
@@ -26,7 +27,7 @@ $(function() {
 			{name : 'Editar',displayInicial : 'hidden',	bclass : 'icon-pencil',onpress : doCommand	},
 			// {name : 'Imprimir',displayInicial : 'hidden',	bclass : 'icon-print',onpress : doCommand	},
 			],
-		sortname : "dataEvento",
+		sortname : "nome",
 		sortorder : "desc",
 		usepager : false,
 		useRp : true,
@@ -74,7 +75,7 @@ function events() {
 function doCommand(com, grid) {
 	switch (com) {
 		case 'Novo':
-			loading('Carregando...', '/evento/formulario/');
+			loading('Carregando...', '/usuario/formulario/');
 			break;
 		case 'Editar':
 			var id = '';
@@ -82,7 +83,7 @@ function doCommand(com, grid) {
 				id = $(this).attr('id');
 				id = id.substring(id.lastIndexOf('row') + 3);
 			});
-			loading('Carregando...', '/evento/formulario/' + id + '/');
+			loading('Carregando...', '/usuario/formulario/' + id + '/');
 			break;
 		default:
 			alert($('.trSelected', grid).length);

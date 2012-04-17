@@ -14,7 +14,7 @@ require_once (dirname ( __FILE__ ) . '/configs.php');
 
 
 if (empty ( $page ))
-	$page = 'galeria';
+	$page = 'evento';
 
 
 
